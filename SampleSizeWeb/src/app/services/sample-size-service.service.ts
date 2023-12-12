@@ -1,15 +1,16 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, map } from 'rxjs';
+import { BehaviorSubject, Observable, map, of } from 'rxjs';
 import { HttpClient } from '@angular/common/http'
 import { environment } from 'src/environments/environment';
 import { CalculateRequest } from '../model/Request/CalculateRequest';
 import { CalculateResponse } from '../model/Response/CalculateResponse';
+import { AuthService } from './auth-service.service';
 
 
 @Injectable({
   providedIn: 'root'
 })
-export class SampleSizeServiceService {
+export class SampleSizeService {
 
   url: string = '';
   
@@ -21,13 +22,24 @@ export class SampleSizeServiceService {
   private input = new BehaviorSubject(undefined);
   input$ = this.input.asObservable();
 
-  constructor(private httpClient: HttpClient) { 
-    this.url = environment.API_SAMPLE_SIZE + '/GetItemsKnown';//know destiny
+  constructor(
+    private authService:AuthService,
+    private httpClient: HttpClient
+  ) { 
+    this.url = environment.API_SAMPLE_SIZE + '/SampleSize/GetItemsKnown';//know destiny
     console.log('Url',this.url);
   }
 
   GetItemsKnown(model: CalculateRequest): Observable<any> {
-    return this.httpClient.post<CalculateResponse>(this.url, model);
+    // const token = localStorage.getItem('token');
+    // console.log('SampleService-token',token);
+    
+    // if(token){
+    //   console.log('aqui');
+      return this.httpClient.post<CalculateResponse>(this.url, model);
+    // }else{
+    //   return of(null);
+    // }
   }
 
   UpdateDataForm(data:any){

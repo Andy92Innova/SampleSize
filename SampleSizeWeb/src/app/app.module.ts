@@ -6,11 +6,13 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { DetailComponent } from './components/detail/detail.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
-import { SampleSizeServiceService } from './service/sample-size-service.service';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { SampleSizeService } from './services/sample-size-service.service';
 import { PaginationComponent } from './components/shared/pagination/pagination.component';
 import { HeaderComponent } from './components/shared/header/header.component';
 import { BreadcumbComponent } from './components/shared/breadcumb/breadcumb.component';
+import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { AuthService } from './services/auth-service.service';
 
 
 @NgModule({
@@ -29,7 +31,13 @@ import { BreadcumbComponent } from './components/shared/breadcumb/breadcumb.comp
     HttpClientModule,
   ],
   providers: [
-    SampleSizeServiceService
+    SampleSizeService,
+    AuthService,
+    {
+      provide:HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi:true
+    }
   ],
   bootstrap: [AppComponent]
 })

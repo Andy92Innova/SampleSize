@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  API_SAMPLE_SIZE:'https://localhost:7265/SampleSize'
+  API_SAMPLE_SIZE:'https://localhost:7265/api'
+
 };
 
 /*

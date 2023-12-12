@@ -5,17 +5,17 @@
     [pagination]="pagination"
     (next)="setNextPage($event)">
   </app-pagination>
-      <table class="table table-hover " *ngIf="data != null">
+      <table class="table table-dark table-hover " *ngIf="data != null">
           <thead>
             <tr>
-              <th scope="col" style="width: 20%;">Numbers</th>
+              <th scope="col" style="width: 20%;" class="text-center">Numbers</th>
               <th scope="col">Results</th>
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let item of data.items">
-              <th scope="row">{{item.index}}</th>
-              <td>{{item.result}}</td>                
+            <tr *ngFor="let item of data.Items">
+              <th scope="row" class="text-center">{{item.Index}}</th>
+              <td>{{item.Result}}</td>                
             </tr>
           </tbody>
         </table>

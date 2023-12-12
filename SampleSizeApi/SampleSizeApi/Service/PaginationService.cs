@@ -1,5 +1,6 @@
 ﻿using SampleSizeApi.Models.DTO;
 using SampleSizeApi.Models.Response;
+using SampleSizeApi.Service.Interface;
 
 namespace SampleSizeApi.Service
 {

@@ -5,6 +5,7 @@ using SampleSizeApi.Models.DTO;
 using SampleSizeApi.Models.Request;
 using SampleSizeApi.Models.Response;
 using SampleSizeApi.Service;
+using SampleSizeApi.Service.Interface;
 using System.Text.Json;
 
 namespace SampleSizeApiTest

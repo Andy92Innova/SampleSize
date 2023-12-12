@@ -30,3 +30,12 @@ C:\Personal\SampleSize\SampleSizeApi\SampleSizeApi\obj\Debug\net6.0\refint\Sampl
 C:\Personal\SampleSize\SampleSizeApi\SampleSizeApi\obj\Debug\net6.0\SampleSizeApi.pdb
 C:\Personal\SampleSize\SampleSizeApi\SampleSizeApi\obj\Debug\net6.0\SampleSizeApi.genruntimeconfig.cache
 C:\Personal\SampleSize\SampleSizeApi\SampleSizeApi\obj\Debug\net6.0\ref\SampleSizeApi.dll
+C:\Personal\SampleSize\SampleSizeApi\SampleSizeApi\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Personal\SampleSize\SampleSizeApi\SampleSizeApi\bin\Debug\net6.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Personal\SampleSize\SampleSizeApi\SampleSizeApi\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Personal\SampleSize\SampleSizeApi\SampleSizeApi\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
+C:\Personal\SampleSize\SampleSizeApi\SampleSizeApi\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
+C:\Personal\SampleSize\SampleSizeApi\SampleSizeApi\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Personal\SampleSize\SampleSizeApi\SampleSizeApi\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
+C:\Personal\SampleSize\SampleSizeApi\SampleSizeApi\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Personal\SampleSize\SampleSizeApi\SampleSizeApi\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll

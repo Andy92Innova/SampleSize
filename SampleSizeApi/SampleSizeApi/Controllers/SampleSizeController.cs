@@ -2,14 +2,16 @@
 using SampleSizeApi.Models.DTO;
 using SampleSizeApi.Models.Request;
 using SampleSizeApi.Models.Response;
-using SampleSizeApi.Service;
-using System.Text.Json.Serialization;
+using SampleSizeApi.Service.Interface;
+using Newtonsoft.Json;
+using Microsoft.AspNetCore.Authorization;
 
 namespace SampleSizeApi.Controllers
 {
     [ApiController]
-    [Route("[controller]/[action]")]
-    public class SampleSizeController : Controller
+    [Route("api/[controller]")]
+    [Authorize]
+    public class SampleSizeController : ControllerBase
     {
         private ICalculateService _calculateService;
         private IPaginationService<ItemKnown> _pagination;
@@ -19,7 +21,7 @@ namespace SampleSizeApi.Controllers
             _pagination = pagination;
         }
 
-        [HttpPost]
+        [HttpPost("GetItemsKnown")]
         public IActionResult GetItemsKnown([FromBody] CalculateRequest model)
         {
             var response = new CalculateResponse()
@@ -41,7 +43,7 @@ namespace SampleSizeApi.Controllers
                 response.Error = ex.Message;
             }
 
-            return Json(response);
+            return Ok(JsonConvert.SerializeObject(response));
         }
     }
 }

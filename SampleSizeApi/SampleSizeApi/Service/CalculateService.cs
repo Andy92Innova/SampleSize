@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Components.Forms;
 using SampleSizeApi.Models.DTO;
+using SampleSizeApi.Service.Interface;
 using System.ComponentModel;
 using System.Reflection;
 

@@ -1,6 +1,6 @@
 ﻿using SampleSizeApi.Models.DTO;
 
-namespace SampleSizeApi.Service
+namespace SampleSizeApi.Service.Interface
 {
     public interface ICalculateService
     {

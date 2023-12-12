@@ -1,11 +1,11 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 import { Router } from '@angular/router';
-import { Console } from 'console';
 import { InputModel } from 'src/app/model/Domain/InputModel';
 import { Pagination } from 'src/app/model/Domain/PaginationModel';
 import { CalculateRequest } from 'src/app/model/Request/CalculateRequest';
-import { SampleSizeServiceService } from 'src/app/service/sample-size-service.service';
+import { AuthService } from 'src/app/services/auth-service.service';
+import { SampleSizeService } from 'src/app/services/sample-size-service.service';
 
 @Component({
   selector: 'app-home',
@@ -19,13 +19,22 @@ export class HomeComponent implements OnInit {
   inputUser!: FormGroup;
 
   constructor(
+    private authService:AuthService,
+    private sampleSizeServiceService: SampleSizeService,
     private formBuilder: FormBuilder,
-    private sampleSizeServiceService: SampleSizeServiceService,
     private router: Router) {
   }
 
   ngOnInit(): void {
     this.initializeForm();
+
+    // this.authService.getToken().subscribe({
+    //   next: (token)=> {
+    //     console.log(token);
+    //     localStorage.setItem("token", token.token)
+    //   },
+    //   error: (error) => console.log(error)
+    // })
   }
 
   initializeForm() {
@@ -68,14 +77,19 @@ export class HomeComponent implements OnInit {
       )
 
       this.sampleSizeServiceService.GetItemsKnown(model).subscribe((data) => {
-        if (data.items == null) {
-            this.isError = true;
-            this.msgError = data.Error;
-        } else {
-          this.sampleSizeServiceService.UpdateDataForm(data);
-          this.sampleSizeServiceService.UpdateInput(input);
-          localStorage.setItem('request', JSON.stringify(input));
-          this.router.navigate(['/detail']);
+        if(data != null){
+          if (data.Items == null) {
+              this.isError = true;
+              this.msgError = data.Error;
+          } else {
+            this.sampleSizeServiceService.UpdateDataForm(data);
+            this.sampleSizeServiceService.UpdateInput(input);
+            localStorage.setItem('request', JSON.stringify(input));
+            this.router.navigate(['/detail']);
+          }
+        }else{
+          this.isError = true;
+          this.msgError = 'Token is missing';
         }
       });
     }
