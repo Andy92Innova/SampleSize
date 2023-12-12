@@ -1,2 +1,2 @@
 # SampleSize
-Angular + asp.net core comunication
+Angular + asp.net core comunication + JWT
