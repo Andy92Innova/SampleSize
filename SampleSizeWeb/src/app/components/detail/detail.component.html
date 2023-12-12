@@ -1,0 +1,27 @@
+<div class="container">
+  <app-breadcumb (navigate)="setNavigate($event)"></app-breadcumb>
+  <div class="col-auto m-5">
+    <app-pagination 
+    [pagination]="pagination"
+    (next)="setNextPage($event)">
+  </app-pagination>
+      <table class="table table-hover " *ngIf="data != null">
+          <thead>
+            <tr>
+              <th scope="col" style="width: 20%;">Numbers</th>
+              <th scope="col">Results</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of data.items">
+              <th scope="row">{{item.index}}</th>
+              <td>{{item.result}}</td>                
+            </tr>
+          </tbody>
+        </table>
+        <app-pagination 
+          [pagination]="pagination"
+          (next)="setNextPage($event)">
+        </app-pagination>
+  </div>
+</div>

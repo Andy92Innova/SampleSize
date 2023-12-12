@@ -1,0 +1,53 @@
+<div class="container-sm">
+    <h1>Sample size input</h1>
+    <br>
+    <form [formGroup]="inputUser" (ngSubmit)="submitForm()">
+        <div class="col-6 content-center">
+            <label for="input1">Input1: </label>
+            <input id="input1" formControlName="input1" type="number" placeholder="Input1"
+                class="form-control form-control-lg">
+            <p *ngIf="validateInput1!.invalid && (validateInput1!.dirty || validateInput1!.touched)"
+                class="alert alert-danger">
+                <span *ngIf="validateInput1!.errors?.['required']">
+                    * Input 1 is required
+                </span>
+                <span *ngIf="validateInput1!.errors?.['min']">
+                    * You should write positive numbers greater than 0
+                </span>
+            </p>
+        </div>
+        <div class="col-6">
+            <label for="input2">Input2:</label>
+            <input id="input2" formControlName="input2" type="number" placeholder="Input2"
+                class="form-control form-control-lg">
+            <p *ngIf="validateInput2!.invalid && (validateInput2!.dirty || validateInput2!.touched)"
+                class="alert alert-danger">
+                <span *ngIf="validateInput2!.errors?.['required']">
+                    * Input 2 is required
+                </span>
+                <span *ngIf="validateInput2!.errors?.['min']">
+                    * You should write positive numbers greater than 0
+                </span>
+            </p>
+        </div>
+        <div class="col-6">
+            <label for="sampleSize">SampleSize:</label>
+            <input id="sampleSize" formControlName="sampleSize" type="number" placeholder="Sample Size"
+                class="form-control form-control-lg">
+            <p *ngIf="validateSampleSize!.invalid && (validateSampleSize!.dirty || validateSampleSize!.touched)"
+                class="alert alert-danger">
+                <span *ngIf="validateSampleSize!.errors?.['required']">
+                    * Sample size is required
+                </span>
+                <span *ngIf="validateSampleSize!.errors?.['min']">
+                    * You should write positive numbers greater than 0
+                </span>
+            </p>
+        </div>
+        <button class="btn mt-2 btn-primary" type="submit" [disabled]="!inputUser.valid">Submit</button>
+    </form>
+    <div *ngIf="isError" class="alert alert-danger">
+        <p>{{msgError}}</p>
+    </div>
+
+</div>

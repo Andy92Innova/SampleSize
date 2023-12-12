@@ -1,0 +1,22 @@
+<div id="pagination">
+    <nav aria-label="Page navigation example">
+      <ul class="pagination justify-content-center">
+        <li *ngIf="pagination.Page > 1 && pagination.Page <= pagination.TotalPages" [class.disabled]="pagination.Page == 1"   class="page-item">
+          <a 
+            class="page-link"
+            (click)="setPreviousPage()"> << </a>
+        </li>
+        <li *ngFor="let i of getArray(pagination.TotalPages); let index = index" [class.active]="pagination.Page-1==index">
+          <a 
+            class="page-link" 
+            (click)="setPage(i)"
+          >{{i}}</a>
+        </li>
+        <li *ngIf="pagination.Page != pagination.TotalPages" [class.disabled]="pagination.Page == pagination.TotalPages" class="page-item">
+          <a 
+            class="page-link" 
+            (click)="setNextPage()"> >> </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
