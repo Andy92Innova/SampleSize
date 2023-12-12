@@ -12,8 +12,8 @@ namespace SampleSizeApi.Controllers
     public class SampleSizeController : Controller
     {
         private ICalculateService _calculateService;
-        private IPagination<ItemKnown> _pagination;
-        public SampleSizeController(ICalculateService calculateService, IPagination<ItemKnown> pagination)
+        private IPaginationService<ItemKnown> _pagination;
+        public SampleSizeController(ICalculateService calculateService, IPaginationService<ItemKnown> pagination)
         {
             _calculateService = calculateService;
             _pagination = pagination;

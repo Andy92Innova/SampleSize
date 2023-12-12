@@ -39,7 +39,11 @@ namespace SampleSizeApi.Service
                     knownList.Add(item);
                 }
             }
-            catch (DivideByZeroException ex) {
+            catch (DivideByZeroException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex) {
                 throw ex;
             }
 

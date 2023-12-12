@@ -3,9 +3,9 @@ using SampleSizeApi.Models.Response;
 
 namespace SampleSizeApi.Service
 {
-    public class Pagination<T> : IPagination<T> where T : class
+    public class PaginationService<T> : IPaginationService<T> where T : class
     {
-        List<T> IPagination<T>.GetCurrentPage(List<T> list, Pagination pageControl)
+        List<T> IPaginationService<T>.GetCurrentPage(List<T> list, Pagination pageControl)
         {
             int itemsByPage = 10;
             int total = list.Count;

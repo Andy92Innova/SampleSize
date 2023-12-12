@@ -10,7 +10,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddTransient<ICalculateService, CalculateService>();
-builder.Services.AddTransient<IPagination<ItemKnown>, Pagination<ItemKnown>>();
+builder.Services.AddTransient<IPaginationService<ItemKnown>, PaginationService<ItemKnown>>();
 
 var app = builder.Build();
 
