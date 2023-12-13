@@ -33,8 +33,11 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+//I use AddTransient because it doesn't matter the state of the service and I don't want to shared the same status among classes. I mean, it's just a Calculate operation. It doesn't have Status
+//But it possible use AddScope, it will work too. But accord the life cycle, it isn't neccesary.
 builder.Services.AddTransient<ICalculateService, CalculateService>();
 builder.Services.AddTransient<IPaginationService<ItemKnown>, PaginationService<ItemKnown>>();
+
 
 
 var app = builder.Build();

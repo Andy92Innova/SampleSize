@@ -4,8 +4,15 @@ using SampleSizeApi.Service.Interface;
 
 namespace SampleSizeApi.Service
 {
-    public class PaginationService<T> : IPaginationService<T> where T : class
+    public class PaginationService<T> : IPaginationService<T>
     {
+        /*
+            Why I use T ? 
+            R: Because I wanted to convert this class in a generic clas. I mean, I wanted to have the possibility to expand my service using different types
+            Before this, I have used T: class because I thought that was a correct way to use with value types. But it was mmy mistake. 
+
+         */
+
         List<T> IPaginationService<T>.GetCurrentPage(List<T> list, Pagination pageControl)
         {
             int itemsByPage = 10;
